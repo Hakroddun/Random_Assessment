@@ -4,6 +4,7 @@ import com.blackswan.assessment.entity.Task;
 import com.blackswan.assessment.entity.User;
 import com.blackswan.assessment.gateway.task.CreateTaskGateway;
 import com.blackswan.assessment.gateway.task.DeleteTaskGateway;
+import com.blackswan.assessment.gateway.task.ListTaskGateway;
 import com.blackswan.assessment.gateway.task.UpdateTaskGateway;
 import com.blackswan.assessment.gateway.user.CreateUserGateway;
 import com.blackswan.assessment.gateway.user.ListUserGateway;
@@ -11,6 +12,7 @@ import com.blackswan.assessment.gateway.user.RetrieveUserGateway;
 import com.blackswan.assessment.gateway.user.UpdateUserGateway;
 import com.blackswan.assessment.task.create.CreateTaskTransaction;
 import com.blackswan.assessment.task.delete.DeleteTaskTransaction;
+import com.blackswan.assessment.task.list.ListTaskTransaction;
 import com.blackswan.assessment.task.update.UpdateTaskTransaction;
 import com.blackswan.assessment.user.create.CreateUserTransaction;
 import com.blackswan.assessment.user.list.ListUserTransaction;
@@ -85,7 +87,7 @@ public class CoreController
 
     //Delete task for a user
     @DeleteMapping(value = "/api/user/{user_id}/task/{task_id}",  produces = "application/json")
-    public void deleteTask(@PathVariable("user_id") String userID, @PathVariable("task_id") String taskID)
+    public void deleteTask(@PathVariable("user_id") int userID, @PathVariable("task_id") int taskID)
     {
         DeleteTaskGateway gateway = new DeleteTaskGateway();
         DeleteTaskTransaction transaction = new DeleteTaskTransaction();
@@ -94,16 +96,19 @@ public class CoreController
 
     //Get info for a task
     @GetMapping(value = "/api/user/{user_id}/task/{task_id}", produces = "application/json")
-    public Task retrieveTaskInfo(@PathVariable("user_id") String userID, @PathVariable("task_id") String taskID)
+    public Task retrieveTaskInfo(@PathVariable("user_id") int userID, @PathVariable("task_id") int taskID)
     {
         return null;
     }
 
     //Get all tasks for a user
     @GetMapping(value = "/api/user/{user_id}/task", produces = "application/json")
-    public List<Task> listTasksOfUser(@PathVariable("user_id") String userID)
+    public List<Task> listTasksOfUser(@PathVariable("user_id") int userID)
     {
-        return null;
+        ListTaskGateway gateway = new ListTaskGateway();
+        ListTaskTransaction transaction = new ListTaskTransaction();
+        transaction.setGateway(gateway);
+        return transaction.listTasks(userID);
     }
 
 }

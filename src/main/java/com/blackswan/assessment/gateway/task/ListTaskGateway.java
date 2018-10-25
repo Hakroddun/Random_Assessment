@@ -1,43 +1,46 @@
 package com.blackswan.assessment.gateway.task;
 
-import com.blackswan.assessment.entity.User;
-import com.blackswan.assessment.user.list.ListUserGatewayInterface;
+import com.blackswan.assessment.entity.Task;
+import com.blackswan.assessment.task.list.ListTaskGatewayInterface;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListTaskGateway implements ListUserGatewayInterface
+public class ListTaskGateway implements ListTaskGatewayInterface
 {
     private static String url = "jdbc:sqlite:./assessment.db";
 
     @Override
-    public List<User> listUsers()
+    public List<Task> listTasks(int userID)
     {
-        return retrieveUsersFromTable();
+        return retrieveTasksFromTable(userID);
     }
 
-    private List<User> retrieveUsersFromTable()
+    private List<Task> retrieveTasksFromTable(int userID)
     {
-        String sql = "SELECT id, username, first_name, last_name FROM user;";
-        List<User> userList = new ArrayList<>();
+        String sql = "SELECT id, name, description, date_time, status, user_id FROM task WHERE user_id = ?;";
+        List<Task> taskList = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(url); PreparedStatement pstmt = conn.prepareStatement(sql))
         {
+            pstmt.setInt(1, userID);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next())
             {
-                User userDetails = new User();
-                userDetails.id = rs.getInt("id");
-                userDetails.username = rs.getString("username");
-                userDetails.first_name = rs.getString("first_name");
-                userDetails.last_name = rs.getString("last_name");
-                userList.add(userDetails);
+                Task taskDetails = new Task();
+                taskDetails.id = rs.getInt("id");
+                taskDetails.name = rs.getString("name");
+                taskDetails.description = rs.getString("description");
+                taskDetails.date_time = rs.getString("date_time");
+                taskDetails.status = rs.getString("status");
+                taskDetails.userID = rs.getInt("user_id");
+                taskList.add(taskDetails);
             }
         }
         catch (SQLException e)
         {
             System.err.println("Error inserting data");
         }
-        return userList;
+        return taskList;
     }
 }
