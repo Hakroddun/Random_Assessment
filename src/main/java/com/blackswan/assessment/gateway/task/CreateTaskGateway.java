@@ -20,7 +20,7 @@ public class CreateTaskGateway implements CreateTaskGatewayInterface
 
     private static void insertIntoTaskTable(String name,String description,String date_time,String status,int userID)
     {
-        String sql = "INSERT OR REPLACE INTO task(name,description,date_time,status,user_id) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO task(name,description,date_time,status,user_id) VALUES(?,?,?,?,?)";
 
         try (Connection conn = DriverManager.getConnection(url); PreparedStatement pstmt = conn.prepareStatement(sql))
         {

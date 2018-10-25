@@ -33,7 +33,7 @@ public class RetrieveUserGateway implements RetrieveUserGatewayInterface
         }
         catch (SQLException e)
         {
-            System.err.println("Error inserting data");
+            System.err.println("Error retrieving data");
         }
         return userDetails;
     }

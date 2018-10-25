@@ -1,7 +1,5 @@
 package com.blackswan.assessment.entity;
 
-import java.util.Date;
-
 public class Task
 {
     public int id;
@@ -10,4 +8,17 @@ public class Task
     public String date_time;
     public String status;
     public int userID;
+
+    @Override
+    public String toString()
+    {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", date_time='" + date_time + '\'' +
+                ", status='" + status + '\'' +
+                ", userID=" + userID +
+                '}';
+    }
 }

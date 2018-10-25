@@ -3,7 +3,10 @@ package com.blackswan.assessment.gateway.task;
 
 import com.blackswan.assessment.task.delete.DeleteTaskGatewayInterface;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DeleteTaskGateway implements DeleteTaskGatewayInterface
 {
@@ -26,7 +29,7 @@ public class DeleteTaskGateway implements DeleteTaskGatewayInterface
         }
         catch (SQLException e)
         {
-            System.err.println("Error inserting data");
+            System.err.println("Error deleting data");
         }
     }
 }

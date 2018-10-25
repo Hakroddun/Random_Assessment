@@ -39,7 +39,7 @@ public class ListTaskGateway implements ListTaskGatewayInterface
         }
         catch (SQLException e)
         {
-            System.err.println("Error inserting data");
+            System.err.println("Error retrieving data");
         }
         return taskList;
     }

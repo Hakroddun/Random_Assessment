@@ -31,7 +31,7 @@ public class UpdateTaskGateway implements UpdateTaskGatewayInterface
         }
         catch (SQLException e)
         {
-            System.err.println("Error inserting data");
+            System.err.println("Error updating data");
         }
     }
 }

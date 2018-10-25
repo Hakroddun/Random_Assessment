@@ -31,7 +31,7 @@ public class UpdateUserGateway implements UpdateUserGatewayInterface
         }
         catch (SQLException e)
         {
-            System.err.println("Error inserting data");
+            System.err.println("Error updating data");
         }
     }
 }

@@ -12,11 +12,14 @@ public class TaskChecker implements JobInterface
     public void execute()
     {
         List<Task> finishedTasks = gateway.getFinishedTasks();
-        for (Task finishedTask : finishedTasks)
+        if(!finishedTasks.isEmpty())
         {
-            System.out.println(finishedTask.toString());
+            for (Task finishedTask : finishedTasks)
+            {
+                System.out.println(finishedTask.toString());
+            }
+            gateway.updateFinishedTasks(finishedTasks);
         }
-        gateway.updateFinishedTasks(finishedTasks);
     }
 
     public void setGateway(FinishedTaskGatewayInterface gateway)
