@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ListTaskTransaction
 {
-    ListTaskGatewayInterface gateway;
+    private ListTaskGatewayInterface gateway;
 
     public List<Task> listTasks(int userID)
     {

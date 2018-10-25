@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Scheduler
 {
-    JobInterface taskToRun;
+    private JobInterface taskToRun;
     public void startScheduler(int frequencyToRunSchedule)
     {
         TimerTask scheduledTaskTimer = new TimerTask()
@@ -16,7 +16,6 @@ public class Scheduler
             {
                 taskToRun.execute();
             }
-
         };
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
         service.scheduleAtFixedRate(scheduledTaskTimer, 0, frequencyToRunSchedule, TimeUnit.SECONDS);

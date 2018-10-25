@@ -4,7 +4,7 @@ import com.blackswan.assessment.entity.User;
 
 public class CreateUserTransaction
 {
-    CreateUserGatewayInterface gateway;
+    private CreateUserGatewayInterface gateway;
 
     public void createUser(User userDetails)
     {

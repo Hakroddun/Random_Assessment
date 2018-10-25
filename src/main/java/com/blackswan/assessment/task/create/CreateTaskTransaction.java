@@ -4,7 +4,7 @@ import com.blackswan.assessment.entity.Task;
 
 public class CreateTaskTransaction
 {
-    CreateTaskGatewayInterface gateway;
+    private CreateTaskGatewayInterface gateway;
 
     public void createTask(int userID, Task taskDetails)
     {

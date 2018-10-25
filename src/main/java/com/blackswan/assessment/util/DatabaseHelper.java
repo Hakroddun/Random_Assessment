@@ -12,7 +12,7 @@ public class DatabaseHelper
         createTaskTable();
     }
 
-    public static void createUserTable()
+    private static void createUserTable()
     {
         String sql = "CREATE TABLE IF NOT EXISTS user (id integer PRIMARY KEY, username text NOT NULL UNIQUE, first_name text NOT NULL, last_name text NOT NULL);";
 
@@ -26,7 +26,7 @@ public class DatabaseHelper
         }
     }
 
-    public static void createTaskTable()
+    private static void createTaskTable()
     {
         String sql = "CREATE TABLE IF NOT EXISTS task (id integer PRIMARY KEY, name text NOT NULL UNIQUE, description text, date_time text NOT NULL, status text NOT NULL, user_id integer NOT NULL);";
 
@@ -57,6 +57,7 @@ public class DatabaseHelper
         insertIntoTaskTable("Task8","Dummy Task8","2018-10-23 09:29:00","pending",4);
     }
 
+    //Could be used to migrate data
     public static void insertIntoUserTable(String username,String first_name,String last_name)
     {
         String sql = "INSERT OR REPLACE INTO user(username,first_name,last_name) VALUES(?,?,?)";
@@ -74,6 +75,7 @@ public class DatabaseHelper
         }
     }
 
+    //Could be used to migrate data
     public static void insertIntoTaskTable(String name,String description,String date_time,String status,int user_ID)
     {
         String sql = "INSERT OR REPLACE INTO task(name,description,date_time,status,user_id) VALUES(?,?,?,?,?)";

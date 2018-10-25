@@ -5,11 +5,11 @@ import com.blackswan.assessment.entity.Task;
 
 public class RetrieveTaskTransaction
 {
-    RetrieveTaskGatewayInterface gateway;
+    private RetrieveTaskGatewayInterface gateway;
 
-    public Task retrieveTask(int userID)
+    public Task retrieveTask(int userID,int taskID)
     {
-        return gateway.retrieveTask(userID);
+        return gateway.retrieveTask(userID,taskID);
     }
 
     public void setGateway(RetrieveTaskGatewayInterface gateway)

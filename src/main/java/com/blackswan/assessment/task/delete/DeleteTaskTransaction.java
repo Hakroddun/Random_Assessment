@@ -2,7 +2,7 @@ package com.blackswan.assessment.task.delete;
 
 public class DeleteTaskTransaction
 {
-    DeleteTaskGatewayInterface gateway;
+    private DeleteTaskGatewayInterface gateway;
 
     public void deleteTask(int userID,int taskID)
     {

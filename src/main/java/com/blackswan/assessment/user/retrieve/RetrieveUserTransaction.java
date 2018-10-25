@@ -5,7 +5,7 @@ import com.blackswan.assessment.entity.User;
 
 public class RetrieveUserTransaction
 {
-    RetrieveUserGatewayInterface gateway;
+    private RetrieveUserGatewayInterface gateway;
 
     public User retrieveUser(int userID)
     {

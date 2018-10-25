@@ -2,10 +2,7 @@ package com.blackswan.assessment;
 
 import com.blackswan.assessment.entity.Task;
 import com.blackswan.assessment.entity.User;
-import com.blackswan.assessment.gateway.task.CreateTaskGateway;
-import com.blackswan.assessment.gateway.task.DeleteTaskGateway;
-import com.blackswan.assessment.gateway.task.ListTaskGateway;
-import com.blackswan.assessment.gateway.task.UpdateTaskGateway;
+import com.blackswan.assessment.gateway.task.*;
 import com.blackswan.assessment.gateway.user.CreateUserGateway;
 import com.blackswan.assessment.gateway.user.ListUserGateway;
 import com.blackswan.assessment.gateway.user.RetrieveUserGateway;
@@ -13,6 +10,7 @@ import com.blackswan.assessment.gateway.user.UpdateUserGateway;
 import com.blackswan.assessment.task.create.CreateTaskTransaction;
 import com.blackswan.assessment.task.delete.DeleteTaskTransaction;
 import com.blackswan.assessment.task.list.ListTaskTransaction;
+import com.blackswan.assessment.task.retrieve.RetrieveTaskTransaction;
 import com.blackswan.assessment.task.update.UpdateTaskTransaction;
 import com.blackswan.assessment.user.create.CreateUserTransaction;
 import com.blackswan.assessment.user.list.ListUserTransaction;
@@ -98,7 +96,10 @@ public class CoreController
     @GetMapping(value = "/api/user/{user_id}/task/{task_id}", produces = "application/json")
     public Task retrieveTaskInfo(@PathVariable("user_id") int userID, @PathVariable("task_id") int taskID)
     {
-        return null;
+        RetrieveTaskGateway gateway = new RetrieveTaskGateway();
+        RetrieveTaskTransaction transaction = new RetrieveTaskTransaction();
+        transaction.setGateway(gateway);
+        return transaction.retrieveTask(userID, taskID);
     }
 
     //Get all tasks for a user

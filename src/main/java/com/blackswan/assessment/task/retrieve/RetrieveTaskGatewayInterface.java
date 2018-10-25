@@ -4,5 +4,5 @@ import com.blackswan.assessment.entity.Task;
 
 public interface RetrieveTaskGatewayInterface
 {
-    Task retrieveTask(int user_ID);
+    Task retrieveTask(int userID, int taskID);
 }

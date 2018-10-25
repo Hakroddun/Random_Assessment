@@ -4,7 +4,7 @@ import com.blackswan.assessment.entity.User;
 
 public class UpdateUserTransaction
 {
-    UpdateUserGatewayInterface gateway;
+    private UpdateUserGatewayInterface gateway;
 
     public void updateUser(int userID, User userDetails)
     {

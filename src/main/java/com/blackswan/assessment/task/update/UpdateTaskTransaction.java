@@ -5,7 +5,7 @@ import com.blackswan.assessment.entity.Task;
 
 public class UpdateTaskTransaction
 {
-    UpdateTaskGatewayInterface gateway;
+    private UpdateTaskGatewayInterface gateway;
 
     public void updateTask(int userID, int taskID, Task taskDetails)
     {

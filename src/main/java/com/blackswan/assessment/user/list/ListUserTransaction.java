@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ListUserTransaction
 {
-    ListUserGatewayInterface gateway;
+    private ListUserGatewayInterface gateway;
 
     public List<User> listUsers()
     {
