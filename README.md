@@ -1,8 +1,12 @@
 # BlackSwan_Assessment
 Assessment for bs-mid-to-senior-java-dev position at blackswan.
 
-Assumptions:
+This is a small CRUD system for users and tasks assigned to them. It also has a scheduler that atomatically updates tasks when their due date and time has passed.
 
+The system will automatically create the assessment database with a table for users and a table for tasks.
+The system will generate 4 dummy users and 2 tasks for each user on startup.
+
+Assumptions:  
 The API's for create/update/delete does not have to send back an object with data once done.
 The API calls supplied would be the only data that would have to be updated.
 The Task object being sent back or printed out would have to contain all data.
