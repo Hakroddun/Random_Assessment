@@ -10,36 +10,28 @@ The system might have to modified in the future, so certain methods would have o
 
 Below follows a list of calls that can be run in Intelij Terminal (they have been modified to work):
 
-Create user
-
+Create user  
 curl -i -H "Content-Type: application/json" -X POST -d "{\"username\":\"jsmith\",\"first_name\" : \"John\", \"last_name\" : \"Smith\"}" http://localhost:8080/api/user
 
-Update user
-
+Update user  
 curl -i -H "Content-Type: application/json" -X PUT -d "{\"first_name\" : \"John\", \"last_name\" : \"Doe\"}" http://localhost:8080/api/user/{id}
 
-List all users
-
+List all users  
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/api/user
 
-Get User info
-
+Get User info  
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/api/user/{id}
 
-Create Task
-
+Create Task  
 curl -i -H "Content-Type: application/json" -X POST -d "{\"name\":\"My task\",\"description\" : \"Description of task\", \"date_time\" : \"2016-05-25 14:25:00\"}" http://localhost:8080/api/user/{user_id}/task
 
-Update Task
-
+Update Task  
 curl -i -H "Content-Type: application/json" -X PUT -d "{\"name\":\"My updated task\"}" http://localhost:8080/api/user/{user_id}/task/{task_id}
 
-Delete Task
-
+Delete Task  
 curl -i -H "Content-Type: application/json" -X DELETE http://localhost:8080/api/user/{user_id}/task/{task_id}
 
-Get Task Info
-
+Get Task Info  
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:8080/api/user/{user_id}/task/{task_id}
 
 List all tasks for a user  
