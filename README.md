@@ -1,6 +1,4 @@
 # Random_Assessment
-Assessment for mid-to-senior-java-dev position.
-
 This is a small CRUD system for users and tasks assigned to them. It also has a scheduler that atomatically updates tasks when their due date and time has passed.
 
 The system will automatically create the assessment database with a table for users and a table for tasks.
